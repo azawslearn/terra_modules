@@ -49,6 +49,6 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
 
   admin_ssh_key {
     username   = "ivansto"
-    public_key = data.http.public_key.body
+    public_key = data.http.public_key.response_body
   }
 }
