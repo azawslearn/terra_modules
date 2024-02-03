@@ -25,7 +25,7 @@ resource "azurerm_linux_virtual_machine" "local_k8s_vm" {
   name                            = var.machine_name
   computer_name                   = var.machine_name
   location                        = var.location
-  resource_group_name             = var.var.resource_group_name
+  resource_group_name             = var.resource_group_name
   network_interface_ids           = [azurerm_network_interface.nic_linux.id]
   size                            = var.machin_size
   disable_password_authentication = true
