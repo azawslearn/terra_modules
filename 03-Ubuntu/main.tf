@@ -45,7 +45,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
 
   admin_ssh_key {
     username   = "ivansto"
-    public_key = file("${path.module}/azure.pub")
+    public_key = file("./azure.pub")
   }
 
 
