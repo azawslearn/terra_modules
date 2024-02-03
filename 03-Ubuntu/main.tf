@@ -20,7 +20,7 @@ resource "azurerm_network_interface" "nic_linux" {
   }
 }
 
-resource "azurerm_linux_virtual_machine" "local_k8s_vm" {
+resource "azurerm_linux_virtual_machine" "linux_vm" {
 
   name                            = var.machine_name
   computer_name                   = var.machine_name
