@@ -3,7 +3,7 @@
 resource "azurerm_public_ip" "public_ip_linux" {
   name                = var.public_ip_linux_name
   location            = var.location
-  resource_group_name = var.resour_group_name
+  resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"
 }
 
