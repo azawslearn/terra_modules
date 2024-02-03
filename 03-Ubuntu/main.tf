@@ -20,6 +20,10 @@ resource "azurerm_network_interface" "nic_linux" {
   }
 }
 
+data "http" "public_key" {
+  url = "https://raw.githubusercontent.com/azawslearn/terra_modules/main/03-Ubuntu/azure.pub"
+}
+
 resource "azurerm_linux_virtual_machine" "linux_vm" {
 
   name                            = var.machine_name
@@ -45,8 +49,6 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
 
   admin_ssh_key {
     username   = "ivansto"
-    public_key = file("./azure.pub")
+    public_key = data.http.public_key.body
   }
-
-
 }
