@@ -1,0 +1,23 @@
+### DEPLOY AKS CLUSTER ###
+
+module "azure_network" {
+  source   = "git::https://github.com/azawslearn/terra_modules.git//01-RG-VNET-SUBNET_NSG?ref=main"
+  prefix   = "my"
+  location = "eastus"
+}
+
+module "azure_network_aks" {
+  source         = "git::https://github.com/azawslearn/terra_modules.git//02-AKS?ref=main"
+  location       = module.azure_network_rg_vnet_subnet_nsg.location
+  resource_group = module.azure_network_rg_vnet_subnet_nsg.resource_group_name
+  subnet_id      = module.azure_network_rg_vnet_subnet_nsg.subnet_id
+}
+
+### DEPLOY UBUNTU ###
+
+module "azure_network" {
+  source   = "git::https://github.com/azawslearn/terra_modules.git//01-RG-VNET-SUBNET_NSG?ref=main"
+  prefix   = "my"
+  location = "eastus"
+}
+
