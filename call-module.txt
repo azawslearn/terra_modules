@@ -21,3 +21,18 @@ module "azure_network" {
   location = "eastus"
 }
 
+module "azure_network_ubuntu" {
+  source              = "git::https://github.com/azawslearn/terra_modules.git//03-Ubuntu?ref=main"
+  location            = module.azure_network.location
+  resource_group_name = module.azure_network.resource_group_name
+  subnet_id           = module.azure_network.subnet_id
+
+
+
+  public_ip_linux_name = "public_ip_linux_name_1"
+  nic_linux_name       = "nic_linux_name_1"
+  machine_name         = "linx-1"
+  machin_size          = "Standard_B1s"
+
+}
+
